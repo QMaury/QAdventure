@@ -15,7 +15,7 @@ int main() {
 	}
 	else if(answer == 2) {
 		printf("\n1) Go north\n2) Go east\n? ");
-		scanf("%d", &answer);		/*  I am already beginning to see that */
+		scanf("%d", &answer);		/*  I am beginning to see that */
 		if(answer == 1) {		/*  this code is fucking retarded.  */
 			printf("> You've been killed by a ghoul.\n> Game over.\n");
 			return 0;
