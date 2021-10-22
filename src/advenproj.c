@@ -2,15 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
-int answer;
 int sword = 0;
 int location = 0;
 int pyr = 0;
-int castpyr = 0;
 int action;
 int ghould = 0;
 int ded = 0;
-int wizd = 0;
+int wizded = 0;
 
 int getAction() {
 	char actionString[80];
@@ -35,9 +33,6 @@ void doLocation0() {
             break;
      	   case 2 :
             	location = 4;
-		if(!wizd && sword) {
-			wizd = 1;
-		}
             	break;
         default :
             invalid();
@@ -69,7 +64,7 @@ void doLocation1() {
 }
 
 void doLocation2() {
-	if(sword==0) {
+	if(sword == 0) {
 		printf("> You are in a room with a sword. You take the sword.\n");
 		sword = 1;
 		printf("1) Go west\n? ");
@@ -83,7 +78,7 @@ void doLocation2() {
 			break;
 		}
 	}
-	else {
+	else if(sword == 1) {
 		printf("> This room is empty.\n");
 		printf("1) Go west\n? ");
 		switch(action) {
@@ -97,13 +92,14 @@ void doLocation2() {
 	}
 }
 void doLocation4() {
-	if(wizd == 0) {
+	if(wizded == 0) {
 		if(sword == 0) {
-			printf("> You encounter an evil magician!\nYou have no weapons to fight with\n");
-			printf("> The magician casts a fireball and you are quickly engulfed in flames.");
+			printf("> You encounter an evil magician!\n> You have no weapons to fight with\n");
+			printf("> The magician casts a fireball and you are quickly engulfed in flames.\n");
 			ded = 1;
 		}
-		if(sword == 1) {
+		if(sword == 1 && wizded == 0) {
+			wizded = 1;
 			printf("> You encounter an evil magician!\nYou equip your sword and attack!\n");
 			printf("> The magician is defeated, and you usurp his power to cast fireballs.\n");
 			printf("1) Go east\n? ");
@@ -116,10 +112,9 @@ void doLocation4() {
 				invalid();
 				break;
 			}
-			wizd = 1;
 		}
 	}
-	else {
+	else if(wizded == 1) {
 		printf("> This room is empty besides the carcass of the magician you killed earlier\n");
 		printf("1) Go east\n? ");
 		action = getAction(); 
@@ -134,13 +129,13 @@ void doLocation4() {
 	}
 }
 void doLocation3() {
-	if(pyr == 0) {
+	if(wizded == 0) {
 		printf("> You are in a pitch black room. You can't see a thing!\nYour eyes are just beginning to adjust to the dark,\n");
 		printf("> when you are attacked by an un-seen foe!\n");
 		printf("> Not being able to see your enemy, you're quickly killed.\n");
 		ded = 1;
 	}
-	if(pyr == 1) {
+	if(wizded == 1) {
 		printf("> You are in a pitch black room. You can't see a thing!\n");
 		printf("1) Go south\n2) Cast a fireball\n? ");
 		action = getAction();
@@ -171,7 +166,7 @@ void doLocationWizd() {
 }
 
 int main() {
-	printf("Cave Adventure 1.2\n");
+	printf("QAdventure 1.3\n");
 	doLocation0();
 	while (!ded && !ghould) {
         switch (location) {
@@ -199,9 +194,9 @@ int main() {
         }
     }
 	if (ghould) {
-		printf("> You killed the ghoul!\nYou win!.\n");
+		printf("> You killed the ghoul!\n> You win!.\n");
 	}
 	else if(ded) {
-		printf("> You have died.\nGame over.\n");
+		printf("> You have died.\n> Game over.\n");
 	}
 }
