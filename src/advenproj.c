@@ -78,9 +78,11 @@ void doLocation2() {
 			break;
 		}
 	}
+
 	else if(sword == 1) {
 		printf("> This room is empty.\n");
 		printf("1) Go west\n? ");
+		action = getAction();
 		switch(action) {
 			case 1 :
 			location = 1;
@@ -166,7 +168,7 @@ void doLocationWizd() {
 }
 
 int main() {
-	printf("QAdventure 1.3\n");
+	printf("QAdventure 1.4\n");
 	doLocation0();
 	while (!ded && !ghould) {
         switch (location) {
