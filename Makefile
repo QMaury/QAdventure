@@ -1,4 +1,4 @@
-CFLAGS= -c -std=c99 $(shell --cflags)
+CFLAGS= -c -std=c99
 LDFLAGS=
 
 SOURCES= $(wildcard src/*.c)
