@@ -103,7 +103,7 @@ void doLocation4() {
 	if(wizded == 0) {
 		if(sword == 0) {
 			txtdvd();
-			printf("> You encounter an evil magician!\n> You have no weapons to fight with\n");
+			printf("> You encounter an evil magician!\n> You have no weapons to fight with.\n");
 			printf("> The magician casts a fireball and you are quickly engulfed in flames.\n");
 			ded = 1;
 		}
@@ -126,7 +126,7 @@ void doLocation4() {
 	}
 	else if(wizded == 1) {
 		txtdvd();
-		printf("> This room is empty besides the carcass of the magician you killed earlier\n");
+		printf("> This room is empty besides the carcass of the magician you killed earlier.\n");
 		printf("1) Go east\n? ");
 		action = getAction(); 
 		switch(action) {
@@ -142,7 +142,7 @@ void doLocation4() {
 void doLocation3() {
 	if(wizded == 0) {
 		txtdvd();
-		printf("> You are in a pitch black room. You can't see a thing!\nYour eyes are just beginning to adjust to the dark,\n");
+		printf("> You are in a pitch black room. You can't see a thing!\n> Your eyes are just beginning to adjust to the dark,\n");
 		printf("> when you are attacked by an un-seen foe!\n");
 		printf("> Not being able to see your enemy, you're quickly killed.\n");
 		ded = 1;
@@ -173,15 +173,8 @@ void doLocationPyr() {
 	printf("> In the corner of the room, you spot a ghoul!!\n> You equip your sword and kill the beast.\n");
 	ghould = 1;
 }
-
-void doLocationWizd() {
-	txtdvd();
-	printf("> You find nothing in this room aside from the carcass of a magician you killed earlier\n");
-	printf("1) Go east\n? ");
-}
-
 int main() {
-	printf("QAdventure 1.5.1");
+	printf("QAdventure 1.5.2");
 	doLocation0();
 	while (!ded && !ghould) {
         switch (location) {
@@ -202,9 +195,6 @@ int main() {
 		break;
 	    case 5: 
 		doLocationPyr();
-		break;
-	    case 6:
-		doLocationWizd();
 		break;
         }
     }
