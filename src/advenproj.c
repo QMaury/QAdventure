@@ -185,7 +185,7 @@ void doLocationPyr() {
 	ghould = 1;
 }
 int main() {
-	printf("QAdventure 1.5.2");
+	printf("QAdventure 1.5.3");
 	doLocation0();
 	while (!ded && !ghould) {
         switch (location) {
