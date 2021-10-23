@@ -28,7 +28,7 @@ void invalid() {
 
 void doLocation0() {
 	txtdvd();
-    printf("> You are at the entrance to the cave. There are 2 ways forward.\n");
+    printf("> You are at the entrance to the cave.\n> You are on a quest to slay a ghoul.\n> There are 2 ways forward.\n");
     printf("> You can go east or west.\n");
     printf("1) Go east\n2) Go west\n? ");
     action = getAction();
