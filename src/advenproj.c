@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+int answer;
 int sword = 0;
 int location = 0;
 int action;
@@ -38,6 +39,9 @@ void doLocation0() {
      	   case 2 :
             	location = 4;
             	break;
+	   case 222:
+		location = 222;
+		break;
         default :
             invalid();
             break;
@@ -166,6 +170,13 @@ void doLocation3() {
 
 	}
 }
+/* how??? */
+void how() {
+	txtdvd();
+	printf("> nice job, hackerman.\n");
+	printf("> https://qmaury.com/images/hacked-again.png\n");
+	exit(0);
+}
 
 void doLocationPyr() {
 	txtdvd();
@@ -195,6 +206,9 @@ int main() {
 		break;
 	    case 5: 
 		doLocationPyr();
+		break;
+		case 222:
+		how();
 		break;
         }
     }
