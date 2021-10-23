@@ -1,5 +1,6 @@
 # QAdventure
 text based adventure game written in C
+
 `> You are on a quest to kill a ghoul.`
 
 Redundant, pointless, and programmed without a single ounce of talent, but it works kind of.
